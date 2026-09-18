@@ -1,11 +1,9 @@
+#![no_std]
 //! Helper functions for retrieving stdin, stdout, stderr to work with `libc`.
-#![warn(missing_docs)]
-
-extern crate libc;
 
 use libc::FILE;
 
-extern "C" {
+unsafe extern "C" {
     /// expression of type FILE* associated with the input stream
     #[link_name = "libc_stdhandle_rs_stdin"]
     pub fn stdin() -> * mut FILE;
